@@ -6,13 +6,15 @@
 ;; Created: 15 Jan 2018
 ;; Version: 0.1
 ;; Package-Requires: ((use-package "1.0") (el-get "1.0"))
-;; Keywords: dotemacs startup speed config package
+;; Keywords: dotemacs startup speed config package tools
 ;; X-URL: https://github.com/edvorg/use-package-el-get
+;; Homepage: https://github.com/edvorg/use-package-el-get
+;; URL: https://github.com/edvorg/use-package-el-get
 
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU Lesser General Public License as
 ;; published by the Free Software Foundation; either version 3, or (at
-;; your option) any later version.
+n;; your option) any later version.
 
 ;; This program is distributed in the hope that it will be useful, but
 ;; WITHOUT ANY WARRANTY; without even the implied warranty of
