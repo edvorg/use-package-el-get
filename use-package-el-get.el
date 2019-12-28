@@ -52,19 +52,23 @@
        ((booleanp arg) (when arg
                          name-symbol))
        ((symbolp arg) arg)
+       ((plist-member arg :name) arg)
        (t
         (use-package-error
-         ":el-get wants a package name or boolean value"))))))
+         ":el-get wants a package name, a package recipe or boolean value"))))))
 
-(defun use-package-handler/:el-get (name-symbol keyword archive-name rest state)
-  "use-package :el-get keyword handler."
-  (let ((body (use-package-process-keywords name-symbol rest state)))
-    ;; This happens at macro expansion time, not when the expanded code is
-    ;; compiled or evaluated.
-    (if (null archive-name)
-        body
-      (el-get-install archive-name)
-      body)))
+(defun use-package-handler/:el-get (name-symbol keyword arg rest state)
+    "use-package :el-get keyword handler."
+    (let ((body (use-package-process-keywords name-symbol rest state)))
+      ;; This happens at macro expansion time, not when the expanded code is
+      ;; compiled or evaluated.
+      (if (null arg)
+          body
+        (if (symbolp arg)
+            (el-get-install arg)
+          (add-to-list 'el-get-sources arg)
+          (el-get-install (plist-get arg :name)))
+        body)))
 
 (defun use-package-el-get-setup ()
   "Set up use-package keyword :el-get ."

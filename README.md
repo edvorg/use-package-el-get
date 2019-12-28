@@ -18,4 +18,12 @@ Install `el-get` with `M-x package-install el-get`
 
 (use-package cool-fancy-package-file
   :el-get cool-fancy-package)
+
+;; or
+
+(use-package cool-fancy-package
+  :el-get
+  ;; Add a new recipe or fix errors in an existing recipe
+  (:name cool-fancy-package
+   ...))
 ```
